@@ -63,27 +63,15 @@ export default function RootLayout({
 							<nav className="ml-auto flex gap-6 mr-4">
 								<Link
 									className="text-sm font-medium hover:underline underline-offset-4"
-									href="#"
+									href="/budgroups"
 								>
-									Destinations
-								</Link>
-								<Link
-									className="text-sm font-medium hover:underline underline-offset-4"
-									href="#"
-								>
-									Packages
+									My BudGroups
 								</Link>
 								<Link
 									className="text-sm font-medium hover:underline underline-offset-4"
 									href="#"
 								>
 									About Us
-								</Link>
-								<Link
-									className="text-sm font-medium hover:underline underline-offset-4"
-									href="#"
-								>
-									Contact
 								</Link>
 							</nav>
 							<SignedOut>

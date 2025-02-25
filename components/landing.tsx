@@ -1,8 +1,10 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Compass, MapPin, Palmtree } from "lucide-react";
+import { redirect } from "next/navigation";
 
 export default function Landing() {
 	return (
@@ -26,14 +28,12 @@ export default function Landing() {
 								</p>
 							</div>
 							<div className="w-full max-w-sm space-y-2 text-center ">
-								<form className="flex space-x-2 items-center justify-center">
-									<Button
-										type="submit"
-										className="bg-pink-400 hover:bg-pink-500 text-gray-900 font-medium"
-									>
-										Start Planning Your Trip
-									</Button>
-								</form>
+								<Button
+									className="bg-pink-400 hover:bg-pink-500 text-gray-900 font-medium"
+									onClick={() => redirect("/budgroups")}
+								>
+									Start Planning Your Trip
+								</Button>
 							</div>
 						</div>
 					</div>
