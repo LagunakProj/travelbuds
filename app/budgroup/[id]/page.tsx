@@ -1,22 +1,110 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import data from "@/lib/data/flight-data.json";
 
-export default function BudGroup({ params }: { params: { id: string } }) {
-	const [flightData, setFlightData] = useState(data);
-	const [id, setId] = useState<string>("");
+export interface Root {
+	data: Data;
+	status: boolean;
+	message: string;
+}
+
+export interface Data {
+	everywhereDestination: EverywhereDestination;
+	context: Context2;
+}
+
+export interface EverywhereDestination {
+	context: Context;
+	features: Features;
+	buckets: Bucket[];
+	results: Result[];
+}
+
+export interface Context {
+	status: string;
+	sessionId: string;
+	totalResults: number;
+}
+
+export interface Features {
+	flightsIndicative: string;
+	images: string;
+	ads: string;
+}
+
+export interface Bucket {
+	id: string;
+	label: string;
+	category: string;
+	resultIds: string[];
+	flightQuotes: string;
+	hotelQuotes: string;
+}
+
+export interface Result {
+	id: string;
+	type: string;
+	content: Content;
+	entityId: string;
+	skyId: string;
+}
+
+export interface Content {
+	location: Location;
+	flightQuotes?: FlightQuotes;
+	image: Image;
+	flightRoutes: FlightRoutes;
+}
+
+export interface Location {
+	id: string;
+	skyCode: string;
+	name: string;
+	type: string;
+}
+
+export interface FlightQuotes {
+	cheapest: Cheapest;
+	direct?: Direct;
+}
+
+export interface Cheapest {
+	price: string;
+	rawPrice: number;
+	direct: boolean;
+}
+
+export interface Direct {
+	price: string;
+	rawPrice: number;
+	direct: boolean;
+}
+
+export interface Image {
+	url: string;
+}
+
+export interface FlightRoutes {
+	directFlightsAvailable: boolean;
+}
+
+export interface Context2 {
+	status: string;
+	sessionId: string;
+	totalResults: number;
+}
+
+export default async function BudGroupBudGroup({
+	params,
+}: {
+	params: Promise<{ id: string }>;
+}) {
+	const id = (await params).id;
+	const [flightData, setFlightData] = useState<Root | null>();
 
 	useEffect(() => {
-		// Aquí se resuelve params.id
-		const fetchData = async () => {
-			if (params?.id) {
-				setId(params.id);
-			}
-		};
-
-		fetchData();
-	}, [params]);
+		setFlightData(data as Root);
+	}, []);
 
 	if (!flightData) {
 		return <p>Cargando...</p>;
@@ -52,42 +140,45 @@ export default function BudGroup({ params }: { params: { id: string } }) {
 													(r) => r.id === resultId
 												);
 
-											if (
-												!flight ||
-												!flight.content.flightQuotes
-											)
-												return null;
+											if (!flight) return null;
+											if (!flight.content.flightQuotes)
+												return;
 
 											return (
-												<li
-													key={resultId}
-													className="flex flex-col border-b py-2 text-center items-center"
-												>
-													<h3 className="text-lg font-medium">
-														{
-															flight.content
-																.location.name
-														}
-													</h3>
-													<p>
-														Precio más barato:{" "}
-														{flight.content
-															.flightQuotes
-															.cheapest?.price ??
-															"N/A"}
-													</p>
-													<img
-														src={
-															flight.content.image
-																.url
-														}
-														alt={
-															flight.content
-																.location.name
-														}
-														className="w-32 h-20 object-cover rounded-md mt-2"
-													/>
-												</li>
+												flight && (
+													<li
+														key={resultId}
+														className="flex flex-col border-b py-2 text-center items-center"
+													>
+														<h3 className="text-lg font-medium">
+															{
+																flight.content
+																	.location
+																	.name
+															}
+														</h3>
+														<p>
+															Precio más barato:{" "}
+															{flight.content
+																.flightQuotes
+																.cheapest
+																?.price ??
+																"N/A"}
+														</p>
+														<img
+															src={
+																flight.content
+																	.image.url
+															}
+															alt={
+																flight.content
+																	.location
+																	.name
+															}
+															className="w-32 h-20 object-cover rounded-md mt-2"
+														/>
+													</li>
+												)
 											);
 										})}
 									</ul>
