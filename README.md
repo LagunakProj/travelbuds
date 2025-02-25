@@ -1,6 +1,6 @@
 # TravelBuds
 
-Bienvenido a **TravelBuds**, una aplicación móvil diseñada para conectar a viajeros y facilitar experiencias compartidas en sus aventuras alrededor del mundo. Con TravelBuds, puedes encontrar compañeros de viaje, planificar actividades juntos y compartir tus experiencias en tiempo real.
+Bienvenido a **TravelBuds**, una plataforma diseñada para conectar a viajeros y facilitar experiencias compartidas en sus aventuras alrededor del mundo. Con TravelBuds, puedes encontrar compañeros de viaje, planificar actividades juntos y compartir tus experiencias en tiempo real.
 
 ## Características
 
