@@ -1,4 +1,5 @@
 import FlightsData from "@/components/flights-data";
+import SwipeDestination from "@/components/swipe-destination";
 
 export default async function BudGroupBudGroup({
 	params,
@@ -18,7 +19,8 @@ export default async function BudGroupBudGroup({
 						Your BudGroups are the people you travel with. Create a
 						BudGroup to start planning your next adventure.
 					</p>
-					<FlightsData />
+					<SwipeDestination />
+					{/* <FlightsData /> */}
 				</div>
 			</section>
 		</main>
