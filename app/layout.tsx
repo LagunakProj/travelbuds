@@ -50,7 +50,7 @@ export default function RootLayout({
 						<header className="px-4 lg:px-6 h-14 flex items-center align-center w-full border-b">
 							<Link
 								className="flex items-center justify-center"
-								href="#"
+								href="/"
 							>
 								<Image
 									src="/icon.webp"

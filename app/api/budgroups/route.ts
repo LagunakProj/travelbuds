@@ -12,5 +12,7 @@ export async function GET(req: Request) {
 		.select("*")
 		.contains("members", [userId]);
 
+	console.log(Budgroups);
+
 	return NextResponse.json(Budgroups);
 }

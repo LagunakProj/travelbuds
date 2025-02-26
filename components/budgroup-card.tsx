@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Plane, Calendar, Users, Share } from "lucide-react";
 import Link from "next/link";
+import { ToastContainer, toast } from "react-toastify";
 
 interface BoardingPassProps {
 	id: number;
@@ -20,16 +21,32 @@ export default function BudGroupCard({
 	people,
 }: BoardingPassProps) {
 	const handleShare = () => {
-		if (navigator.share) {
-			navigator.share({
-				title: "TravelBuds",
-				text: `Check out ${name}'s boarding pass!`,
-				url: `https://travelbuds.vercel.app/budgroups/join/${id}`,
-			});
-		}
+		navigator.clipboard.writeText(
+			`https://travelbuds.vercel.app/budgroups/join/${id}`
+		);
+		toast.info("Link copied to clipboard!");
+		// if (navigator.share) {
+		// navigator.share({
+		// 	title: "TravelBuds",
+		// 	text: `Check out ${name}'s boarding pass!`,
+		// 	url: `https://travelbuds.vercel.app/budgroups/join/${id}`,
+		// });
+		// }
 	};
 	return (
 		<Card className="w-full max-w-md mx-auto bg-white shadow-lg">
+			<ToastContainer
+				position="top-right"
+				autoClose={2000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick={false}
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				theme="colored"
+			/>
 			<CardHeader className="flex flex-row items-center justify-center gap-2 align-center bg-primary text-primary-foreground p-4 rounded-t-lg">
 				<h2 className="text-2xl font-bold text-center">
 					{name}'s Boarding Pass
