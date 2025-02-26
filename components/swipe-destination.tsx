@@ -2,7 +2,7 @@
 
 import flightData from "@/lib/data/flight-data.json";
 import { useState } from "react";
-import TinderCard from "react-tinder-card";
+// import TinderCard from "react-tinder-card";
 
 export default function SwipeDestination() {
 	// const results = data.data.everywhereDestination.buckets[0].resultIds.slice(
@@ -61,7 +61,7 @@ export default function SwipeDestination() {
 	return (
 		<div className="flex flex-col items-center justify-center">
 			<p className="text-6xl text-white">Swipe Destinations</p>
-			<div className="w-[90vw] max-w-[260px] h-[300px] relative flex flex-col items-center justify-center">
+			{/* <div className="w-[90vw] max-w-[260px] h-[300px] relative flex flex-col items-center justify-center">
 				{destinationsDB.map((character) => (
 					<TinderCard
 						className="swipe absolute"
@@ -79,7 +79,7 @@ export default function SwipeDestination() {
 						</div>
 					</TinderCard>
 				))}
-			</div>
+			</div> */}
 
 			{lastDirection ? (
 				<h2 className="infoText text-white">
