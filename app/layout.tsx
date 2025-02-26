@@ -74,13 +74,22 @@ export default function RootLayout({
 									About Us
 								</Link>
 							</nav>
-							<SignedOut>
-								<SignInButton />
-								<SignUpButton />
-							</SignedOut>
-							<SignedIn>
-								<UserButton />
-							</SignedIn>
+							<div>
+								<SignedOut>
+									<div className="flex items-center gap-4">
+										<div className="bg-white rounded-[20px] text-black pl-2 pr-2">
+											<SignInButton />
+										</div>
+										<div className="bg-pink-400 rounded-[20px] text-black pl-2 pr-2">
+											<SignUpButton />
+										</div>
+									</div>
+								</SignedOut>
+								<SignedIn>
+									<UserButton />
+								</SignedIn>
+							</div>
+							<ThemeSwitcher />
 						</header>
 						<main className="min-h-screen flex flex-col items-center">
 							<div className="flex-1 w-full flex flex-col gap-20 items-center">
