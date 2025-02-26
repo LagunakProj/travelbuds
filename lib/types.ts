@@ -1,8 +1,9 @@
 export interface BudGroup {
 	id: number;
 	name: string;
-	startDate: string;
-	endDate: string;
+	startdate: string;
+	enddate: string;
 	people: number;
 	destination: string;
+	budget: number;
 }
