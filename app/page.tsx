@@ -1,5 +1,5 @@
-import Landing from "@/components/landing";
+import Landing from "@/components/landing"
 
 export default async function Home() {
-	return <Landing />;
+	return <Landing />
 }

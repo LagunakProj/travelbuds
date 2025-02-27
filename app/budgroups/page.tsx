@@ -1,18 +1,18 @@
-"use client";
+"use client"
 
-import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
-import type { BudGroup } from "@/lib/types";
-import BoardingPassCard from "@/components/budgroup-card";
+import { Button } from "@/components/ui/button"
+import { useEffect, useState } from "react"
+import type { BudGroup } from "@/lib/types"
+import BoardingPassCard from "@/components/budgroup-card"
 
 export default function BudGroups() {
-	const [budGroups, setBudGroups] = useState<BudGroup[]>([]);
+	const [budGroups, setBudGroups] = useState<BudGroup[]>([])
 
 	useEffect(() => {
 		fetch("/api/budgroups")
 			.then((res) => res.json())
-			.then((data) => setBudGroups(data.budgroups));
-	}, []);
+			.then((data) => setBudGroups(data.budgroups))
+	}, [])
 
 	return (
 		<main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
@@ -22,8 +22,8 @@ export default function BudGroups() {
 						My BudGroups
 					</h1>
 					<p className="text-lg text-white max-w-lg text-center">
-						Your BudGroups are the people you travel with. Create a
-						BudGroup to start planning your next adventure.
+						Your BudGroups are the people you travel with. Create a BudGroup to start planning your
+						next adventure.
 					</p>
 					<div className="flex gap-4">
 						<Button
@@ -61,5 +61,5 @@ export default function BudGroups() {
 				</div>
 			</section>
 		</main>
-	);
+	)
 }

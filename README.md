@@ -29,9 +29,11 @@ $ bun run dev
 ```
 
 ## Uso
+
 Una vez que la aplicación esté en funcionamiento, puedes navegar por sus diferentes secciones para explorar y utilizar todas las funcionalidades. Asegúrate de registrarte y crear un perfil para aprovechar al máximo TravelBuds.
 
 ## Contribuciones
+
 ¡Contribuciones son bienvenidas! Si deseas contribuir a TravelBuds, sigue estos pasos:
 
 Haz un fork del proyecto.
@@ -43,6 +45,7 @@ Licencia
 Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo LICENSE.
 
 ## Contacto
+
 Si tienes alguna pregunta, sugerencia o deseas reportar un problema, no dudes en abrir un issue en este repositorio o contactar al equipo de desarrollo en lagunaakProj@gmail.com.
 
 ¡Gracias por usar TravelBuds y felices viajes! 🌍🚀
