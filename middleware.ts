@@ -1,8 +1,8 @@
-import { clerkMiddleware } from "@clerk/nextjs/server";
+import { clerkMiddleware } from "@clerk/nextjs/server"
 
 // This Middleware does not protect any routes by default.
 // See https://clerk.com/docs/references/nextjs/clerk-middleware for more information about configuring your Middleware
-export default clerkMiddleware();
+export default clerkMiddleware()
 
 export const config = {
 	matcher: [
@@ -11,4 +11,4 @@ export const config = {
 		// Always run for API routes
 		"/(api|trpc)(.*)",
 	],
-};
+}

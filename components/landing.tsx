@@ -1,10 +1,10 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Compass, MapPin, Palmtree } from "lucide-react";
-import { redirect } from "next/navigation";
+"use client"
+import Image from "next/image"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Compass, MapPin, Palmtree } from "lucide-react"
+import { redirect } from "next/navigation"
 
 export default function Landing() {
 	return (
@@ -44,27 +44,20 @@ export default function Landing() {
 							Featured Destinations
 						</h2>
 						<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-							{["Bali", "Paris", "New York"].map(
-								(destination) => (
-									<div
-										key={destination}
-										className="relative group overflow-hidden rounded-lg"
-									>
-										<Image
-											src={`/Paris.jpg`}
-											alt={destination}
-											width={600}
-											height={400}
-											className="object-cover w-full h-[300px] transition-transform duration-300 group-hover:scale-110"
-										/>
-										<div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-											<h3 className="text-white text-2xl font-bold">
-												{destination}
-											</h3>
-										</div>
+							{["Bali", "Paris", "New York"].map((destination) => (
+								<div key={destination} className="relative group overflow-hidden rounded-lg">
+									<Image
+										src={`/Paris.jpg`}
+										alt={destination}
+										width={600}
+										height={400}
+										className="object-cover w-full h-[300px] transition-transform duration-300 group-hover:scale-110"
+									/>
+									<div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+										<h3 className="text-white text-2xl font-bold">{destination}</h3>
 									</div>
-								)
-							)}
+								</div>
+							))}
 						</div>
 					</div>
 				</section>
@@ -77,9 +70,8 @@ export default function Landing() {
 										Why Choose TravelBuds?
 									</h2>
 									<p className="max-w-[600px] text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto">
-										We make your travel dreams a reality
-										with our expert services and
-										unforgettable experiences.
+										We make your travel dreams a reality with our expert services and unforgettable
+										experiences.
 									</p>
 								</div>
 							</div>
@@ -88,20 +80,17 @@ export default function Landing() {
 									{
 										icon: Compass,
 										title: "Expert Guidance",
-										description:
-											"Our experienced team helps you plan the perfect trip.",
+										description: "Our experienced team helps you plan the perfect trip.",
 									},
 									{
 										icon: MapPin,
 										title: "Unique Destinations",
-										description:
-											"Discover hidden gems and popular hotspots alike.",
+										description: "Discover hidden gems and popular hotspots alike.",
 									},
 									{
 										icon: Palmtree,
 										title: "Unforgettable Experiences",
-										description:
-											"Create memories that will last a lifetime.",
+										description: "Create memories that will last a lifetime.",
 									},
 								].map((feature, index) => (
 									<div
@@ -109,12 +98,8 @@ export default function Landing() {
 										className="flex flex-col items-center space-y-2 border border-gray-800 p-6 rounded-lg bg-gray-800"
 									>
 										<feature.icon className="h-12 w-12 mb-2 text-pink-300" />
-										<h3 className="text-xl font-bold text-pink-300">
-											{feature.title}
-										</h3>
-										<p className="text-gray-400 text-center">
-											{feature.description}
-										</p>
+										<h3 className="text-xl font-bold text-pink-300">{feature.title}</h3>
+										<p className="text-gray-400 text-center">{feature.description}</p>
 									</div>
 								))}
 							</div>
@@ -129,8 +114,7 @@ export default function Landing() {
 									Ready to Start Your Journey?
 								</h2>
 								<p className="max-w-[600px] text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-									Sign up for our newsletter and get exclusive
-									travel deals and inspiration.
+									Sign up for our newsletter and get exclusive travel deals and inspiration.
 								</p>
 							</div>
 							<div className="w-full max-w-sm space-y-2">
@@ -154,24 +138,17 @@ export default function Landing() {
 			</main>
 			<footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-gray-800">
 				<p className="text-xs text-gray-400">
-					© {new Date().getFullYear()} TravelBuds. All rights
-					reserved.
+					© {new Date().getFullYear()} TravelBuds. All rights reserved.
 				</p>
 				<nav className="sm:ml-auto flex gap-4 sm:gap-6">
-					<Link
-						className="text-xs hover:text-pink-300 transition-colors"
-						href="#"
-					>
+					<Link className="text-xs hover:text-pink-300 transition-colors" href="#">
 						Terms of Service
 					</Link>
-					<Link
-						className="text-xs hover:text-pink-300 transition-colors"
-						href="#"
-					>
+					<Link className="text-xs hover:text-pink-300 transition-colors" href="#">
 						Privacy
 					</Link>
 				</nav>
 			</footer>
 		</div>
-	);
+	)
 }

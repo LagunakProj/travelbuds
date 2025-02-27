@@ -1,12 +1,8 @@
-import FlightsData from "@/components/flights-data";
-import SwipeDestination from "@/components/swipe-destination";
+import FlightsData from "@/components/flights-data"
+import SwipeDestination from "@/components/swipe-destination"
 
-export default async function BudGroupBudGroup({
-	params,
-}: {
-	params: Promise<{ id: string }>;
-}) {
-	const id = (await params).id;
+export default async function BudGroupBudGroup({ params }: { params: Promise<{ id: string }> }) {
+	const id = (await params).id
 
 	return (
 		<main className="flex min-h-screen flex-col text-center items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
@@ -16,13 +12,13 @@ export default async function BudGroupBudGroup({
 						BudGroup {id}
 					</h1>
 					<p className="text-lg text-white max-w-lg text-center">
-						Your BudGroups are the people you travel with. Create a
-						BudGroup to start planning your next adventure.
+						Your BudGroups are the people you travel with. Create a BudGroup to start planning your
+						next adventure.
 					</p>
 					<SwipeDestination />
 					{/* <FlightsData /> */}
 				</div>
 			</section>
 		</main>
-	);
+	)
 }

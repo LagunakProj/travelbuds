@@ -1,11 +1,11 @@
-"use client";
-import { useEffect, useState } from "react";
-import axios from "axios";
+"use client"
+import { useEffect, useState } from "react"
+import axios from "axios"
 
 export default function FlightInfo() {
-	const [flight, setFlight] = useState(null);
-	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState(null);
+	const [flight, setFlight] = useState(null)
+	const [loading, setLoading] = useState(true)
+	const [error, setError] = useState(null)
 
 	useEffect(() => {
 		const fetchFlight = async () => {
@@ -20,17 +20,17 @@ export default function FlightInfo() {
 						locale: "es-ES",
 						adults: 2,
 					},
-				});
-				setFlight(response.data);
+				})
+				setFlight(response.data)
 			} catch (err: any) {
-				setError(err.message);
+				setError(err.message)
 			} finally {
-				setLoading(false);
+				setLoading(false)
 			}
-		};
+		}
 
-		fetchFlight();
-	}, []);
+		fetchFlight()
+	}, [])
 
 	return (
 		<div className="w-full max-w-md mx-auto text-center flex flex-wrap items-center justify-center">
@@ -38,5 +38,5 @@ export default function FlightInfo() {
 			{error && <p className="text-red-500">Error: {error}</p>}
 			{flight && <pre>{JSON.stringify(flight, null, 2)}</pre>}
 		</div>
-	);
+	)
 }

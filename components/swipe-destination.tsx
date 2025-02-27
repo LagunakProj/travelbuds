@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import flightData from "@/lib/data/flight-data.json";
-import { useState } from "react";
+import flightData from "@/lib/data/flight-data.json"
+import { useState } from "react"
 // import TinderCard from "react-tinder-card";
 
 export default function SwipeDestination() {
@@ -18,45 +18,37 @@ export default function SwipeDestination() {
 	const destinationsDB = flightData.data.everywhereDestination.buckets
 		.flatMap((bucket) =>
 			bucket.resultIds.map((resultId) => {
-				const flight =
-					flightData.data.everywhereDestination.results.find(
-						(r) => r.id === resultId
-					);
-				if (
-					flight &&
-					flight.content &&
-					flight.content.location &&
-					flight.content.image
-				) {
+				const flight = flightData.data.everywhereDestination.results.find((r) => r.id === resultId)
+				if (flight && flight.content && flight.content.location && flight.content.image) {
 					return {
 						name: flight.content.location.name,
 						url: flight.content.image.url,
-					};
+					}
 				}
-				return null; // Retornar null si no encontramos la información necesaria
+				return null // Retornar null si no encontramos la información necesaria
 			})
 		)
 		.filter((item) => item !== null)
-		.slice(0, 20);
+		.slice(0, 20)
 
-	const [lastDirection, setLastDirection] = useState<string>();
+	const [lastDirection, setLastDirection] = useState<string>()
 
 	const swiped = (direction: string, nameToDelete: string) => {
-		console.log("removing: " + nameToDelete);
-		setLastDirection(direction);
-	};
+		console.log("removing: " + nameToDelete)
+		setLastDirection(direction)
+	}
 
 	const outOfFrame = (name: string) => {
-		console.log(name + " left the screen!");
-	};
+		console.log(name + " left the screen!")
+	}
 
 	const onSwipe = (direction: string) => {
-		console.log("You swiped: " + direction);
-	};
+		console.log("You swiped: " + direction)
+	}
 
 	const onCardLeftScreen = (myIdentifier: string) => {
-		console.log(myIdentifier + " left the screen");
-	};
+		console.log(myIdentifier + " left the screen")
+	}
 
 	return (
 		<div className="flex flex-col items-center justify-center">
@@ -82,9 +74,7 @@ export default function SwipeDestination() {
 			</div> */}
 
 			{lastDirection ? (
-				<h2 className="infoText text-white">
-					You swiped {lastDirection}
-				</h2>
+				<h2 className="infoText text-white">You swiped {lastDirection}</h2>
 			) : (
 				<h2 className="infoText text-white" />
 			)}
@@ -110,5 +100,5 @@ export default function SwipeDestination() {
 				})}
 			</div> */}
 		</div>
-	);
+	)
 }
