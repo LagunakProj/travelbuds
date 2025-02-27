@@ -42,18 +42,11 @@ export async function POST(req: Request) {
 	try {
 		const { budgroupId, budget, dateRanges } = await req.json()
 
-		console.log("userId", userId)
-		console.log("budgroupId", budgroupId)
-		console.log("budget", budget)
-		console.log("dateRanges", dateRanges)
-
 		if (!userId || !budgroupId || !budget || !dateRanges) {
 			return new Response(JSON.stringify({ message: "Missing data" }), {
 				status: 400,
 			})
 		}
-
-		console.log(userId, budgroupId, budget, dateRanges)
 
 		const { data, error } = await supabase.from("Userdata").insert([
 			{
