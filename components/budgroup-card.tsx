@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
-import { Plane, Calendar, Users } from "lucide-react"
+import { Plane, Calendar, Users, Share } from "lucide-react"
 import Link from "next/link"
+import { toast, ToastContainer } from "react-toastify"
 
 interface BoardingPassProps {
 	id: number
@@ -19,11 +20,32 @@ export default function BudGroupCard({
 	destination,
 	people,
 }: BoardingPassProps) {
+	const handleShare = () => {
+		const url = window.location.href
+		navigator.clipboard.writeText(`${url}/budgroups/join/${id}`)
+		toast.info("Link copied to clipboard!")
+	}
+
 	return (
 		<Link href={`/budgroup/${id}`} className="w-full max-w-md mx-auto bg-white rounded-lg">
-			<Card className="w-full max-w-md mx-auto bg-white shadow-lg">
-				<CardHeader className="bg-primary text-primary-foreground p-4 rounded-t-lg">
+			<Card className="w-full max-w-md mx-auto bg-white shadow-lg hover:shadow-lg hover:shadow-pink-400">
+				<ToastContainer
+					position="top-right"
+					autoClose={2000}
+					hideProgressBar={false}
+					newestOnTop={false}
+					closeOnClick={false}
+					rtl={false}
+					pauseOnFocusLoss
+					draggable
+					pauseOnHover
+					theme="colored"
+				/>
+				<CardHeader className=" flex flex-row bg-primary text-primary-foreground p-4 rounded-t-lg gap-2 justify-between items-center align-center">
 					<h2 className="text-2xl font-bold text-center">{name}'s Boarding Pass</h2>
+					<button onClick={handleShare} type="button">
+						<Share className="h-6 w-6 text-muted-foreground" color="pink" />
+					</button>
 				</CardHeader>
 				<CardContent className="p-6 space-y-4">
 					<div className="space-y-1">

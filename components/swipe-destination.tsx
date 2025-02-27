@@ -2,7 +2,7 @@
 
 import flightData from "@/lib/data/flight-data.json"
 import { useState } from "react"
-// import TinderCard from "react-tinder-card";
+// import TinderCard from "react-tinder-card"
 
 export default function SwipeDestination() {
 	// const results = data.data.everywhereDestination.buckets[0].resultIds.slice(
