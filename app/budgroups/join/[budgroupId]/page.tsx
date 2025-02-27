@@ -2,7 +2,7 @@
 
 import { notFound } from "next/navigation"
 import { useEffect } from "react"
-import { createClient } from "@/utils/supabase/server"
+import { createClient } from "@/utils/supabase/client"
 import { use } from "react"
 
 export default async function Page({ params }: { params: Promise<{ budgroupId: string }> }) {
