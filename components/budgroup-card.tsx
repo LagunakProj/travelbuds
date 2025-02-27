@@ -4,7 +4,7 @@ import Link from "next/link"
 import { toast, ToastContainer } from "react-toastify"
 
 interface BoardingPassProps {
-	id: number
+	id: string
 	name: string
 	startDate: string
 	endDate: string

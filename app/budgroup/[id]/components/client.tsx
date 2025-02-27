@@ -1,17 +1,19 @@
 "use client"
 
-import SwipeDestination from "@/components/swipe-destination"
-import { BudGroup } from "@/lib/types"
+import BudGroupInfo from "@/components/budgroup/info"
+import BudGroupsQuestions from "@/components/budgroup/questions"
+
+import { BudGroupData } from "@/lib/types"
 import { useEffect, useState } from "react"
 
 export default function BudGroupClient({ id }: { id: string }) {
-	const [budgroupInfo, setBudgroupInfo] = useState<BudGroup | null>(null)
+	const [budgroupInfo, setBudgroupInfo] = useState<BudGroupData | null>(null)
 
-	// useEffect(() => {
-	// 	fetch(`/api/budgroups/${id}`)
-	// 		.then((res) => res.json())
-	// 		.then((data) => setBudgroupInfo(data))
-	// }, [])
+	useEffect(() => {
+		fetch(`/api/budgroup?id=${id}`)
+			.then((res) => res.json())
+			.then((data) => setBudgroupInfo(data))
+	}, [])
 
 	return (
 		<main className="flex min-h-screen flex-col text-center items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
@@ -24,8 +26,11 @@ export default function BudGroupClient({ id }: { id: string }) {
 						Your BudGroups are the people you travel with. Create a BudGroup to start planning your
 						next adventure.
 					</p>
-					<pre>{JSON.stringify(budgroupInfo, null, 2)}</pre>
-					{/* <SwipeDestination /> */}
+					{budgroupInfo ? (
+						<BudGroupInfo budgroupInfo={budgroupInfo} />
+					) : (
+						<BudGroupsQuestions budgroupId={id} />
+					)}
 				</div>
 			</section>
 		</main>

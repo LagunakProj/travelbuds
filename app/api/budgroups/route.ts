@@ -10,7 +10,9 @@ export async function GET() {
 
 	const userId = user?.id
 
-	console.log(userId)
+	if (!userId) {
+		return NextResponse.json([])
+	}
 
 	let { data: Budgroups, error } = await supabase
 		.from("Budgroups")
