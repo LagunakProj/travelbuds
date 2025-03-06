@@ -3,11 +3,11 @@
 import BudGroupInfo from "@/components/budgroup/info"
 import BudGroupsQuestions from "@/components/budgroup/questions"
 
-import { BudGroupData } from "@/lib/types"
+import { BudGroupUserData } from "@/lib/types"
 import { useEffect, useState } from "react"
 
 export default function BudGroupClient({ id }: { id: string }) {
-	const [budgroupInfo, setBudgroupInfo] = useState<BudGroupData | null>(null)
+	const [budgroupInfo, setBudgroupInfo] = useState<BudGroupUserData | null>(null)
 
 	useEffect(() => {
 		fetch(`/api/budgroup?id=${id}`)
