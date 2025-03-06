@@ -7,12 +7,17 @@ export interface BudGroup {
 	destination: string
 }
 
-export interface BudGroupData {
+interface DateRanges {
+	id: string
+	startDate: string
+	endDate: string
+}
+
+export interface BudGroupUserData {
 	id: string
 	created_at: string
 	budgroup_id: string
 	budget: number
-	startdates: string[]
-	enddates: string[]
+	date_ranges: DateRanges[]
 	user_id: string
 }
